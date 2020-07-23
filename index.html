@@ -16,13 +16,9 @@
             if (darkMode.matches) {
                 hex = ["#442222", "#111111"];
                 hsl = `hsla(0, 100%, 50%, ${Math.random() * 0.25})`;
-                
-                // console.log("currently in dark mode");
             } else {
                 hex = ["#9AD1D4", "#003249"];
                 hsl = `hsla(195, 100%, 33%, ${Math.random() * 0.25})`;
-                
-                // console.log("not in dark mode");
             }
             // Ran everytime it changes
             darkMode.addEventListener('change', event => {
@@ -87,6 +83,10 @@
         <script>
             // Check if iOS Device and add app is it is
             let iOSDevice = !!navigator.platform.match(/iPhone|iPod|iPad/);
+            let gitImg = document.createElement("img");
+            let gitSrc = document.getElementById("gitHub");
+            let oldIMG;
+
             if (iOSDevice) {
                 let img = document.createElement("img");
                 img.src = "Assets/Bullseye_Image.png";
@@ -96,48 +96,34 @@
             }
             // Check view mode and add github logo accordingly
             // Ran initially
-            let gitSrc = document.getElementById("gitHub");
-            let oldIMG;
+            
             if (darkMode.matches) {
-                let img = document.createElement("img");
                 img.src = "Assets/GitHub-Mark-Light-32px.png";
                 img.width = "32";
-                console.log(item);
                 gitSrc.appendChild(img);
                 oldIMG = img;
-                // console.log("currently in dark mode");
             } else {
-                let img = document.createElement("img");
-                img.src = "Assets/GitHub-Mark-32px.png";
-                img.width = "32";
-                gitSrc.appendChild(img);
-                oldIMG = img;
-                // console.log("not in dark mode");
+                gitImg.src = "Assets/GitHub-Mark-32px.png";
+                gitImg.width = "32";
+                gitSrc.appendChild(gitImg);
+                oldIMG = gitImg;
             }
             // Ran everytime it changes
             darkMode.addEventListener('change', event => {
                 if (event.matches) {
                      //dark mode
-                     let img = document.createElement("img");
-                    img.src = "Assets/GitHub-Mark-Light-32px.png";
-                    img.width = "32";
-                    setLogo(img);
-                    // console.log("currently in dark mode");
+                    gitImg.src = "Assets/GitHub-Mark-Light-32px.png";
+                    gitImg.width = "32";
+                    gitSrc.replaceChild(gitImg, oldIMG)
+                    oldIMG = gitImg
                 } else {
                     //light mode
-                    let img = document.createElement("img");
-                    img.src = "Assets/GitHub-Mark-32px.png";
-                    img.width = "32";
-                    setLogo(img);
-                    // console.log("not in dark mode");
+                    gitImg.src = "Assets/GitHub-Mark-32px.png";
+                    gitImg.width = "32";
+                    gitSrc.replaceChild(gitImg, oldIMG)
+                    oldIMG = gitImg
                 }
-            })
-
-            function setLogo(logo) {
-                console.log(gitSrc);
-                gitSrc.replaceChild(logo, oldIMG)
-                oldIMG = logo
-            }
+            });
         </script>
     </body>
 </html>
