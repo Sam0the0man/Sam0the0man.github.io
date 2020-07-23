@@ -96,22 +96,22 @@
             }
             // Check view mode and add github logo accordingly
             // Ran initially
+            let gitSrc = document.getElementById("gitHub");
+            let oldIMG;
             if (darkMode.matches) {
                 let img = document.createElement("img");
                 img.src = "Assets/GitHub-Mark-Light-32px.png";
                 img.width = "32";
-                let src = document.getElementById("gitHub");
-                src.appendChild(img);
-                
+                console.log(item);
+                gitSrc.appendChild(img);
+                oldIMG = img;
                 // console.log("currently in dark mode");
             } else {
                 let img = document.createElement("img");
                 img.src = "Assets/GitHub-Mark-32px.png";
                 img.width = "32";
-                let src = document.getElementById("gitHub");
-                console.log(src);
-                src.appendChild(img);
-                
+                gitSrc.appendChild(img);
+                oldIMG = img;
                 // console.log("not in dark mode");
             }
             // Ran everytime it changes
@@ -121,20 +121,23 @@
                      let img = document.createElement("img");
                     img.src = "Assets/GitHub-Mark-Light-32px.png";
                     img.width = "32";
-                    let src = document.getElementById("gitHub");
-                    src.appendChild(img);
-                    console.log("currently in dark mode");
+                    setLogo(img);
+                    // console.log("currently in dark mode");
                 } else {
                     //light mode
                     let img = document.createElement("img");
                     img.src = "Assets/GitHub-Mark-32px.png";
                     img.width = "32";
-                    let src = document.getElementById("gitHub");
-                    src.appendChild(img);
+                    setLogo(img);
                     // console.log("not in dark mode");
                 }
             })
 
+            function setLogo(logo) {
+                console.log(gitSrc);
+                gitSrc.replaceChild(logo, oldIMG)
+                oldIMG = logo
+            }
         </script>
     </body>
 </html>
