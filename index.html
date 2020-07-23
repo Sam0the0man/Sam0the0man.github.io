@@ -10,16 +10,19 @@
             let hex = [];
             let hsl = ``
             let darkMode = window.matchMedia('(prefers-color-scheme: dark)');
+            
+            // Check view mode and change background accordingly
             // Ran initially
             if (darkMode.matches) {
                 hex = ["#442222", "#111111"];
                 hsl = `hsla(0, 100%, 50%, ${Math.random() * 0.25})`;
-
-                console.log("currently in dark mode");
+                
+                // console.log("currently in dark mode");
             } else {
                 hex = ["#9AD1D4", "#003249"];
                 hsl = `hsla(195, 100%, 33%, ${Math.random() * 0.25})`;
-                console.log("not in dark mode");
+                
+                // console.log("not in dark mode");
             }
             // Ran everytime it changes
             darkMode.addEventListener('change', event => {
@@ -77,22 +80,61 @@
             }
         </script>
         <div class="socials">
-            <a href="https://github.com/Sam0the0man" target="_blank" id="gitHub"><img src="Assets/GitHub-Mark-32px.png" width="32"></a>
+            <a href="https://github.com/Sam0the0man" target="_blank"><span id="gitHub"></span></a>
             <a href="https://linkedin.com" target="_blank"><img src="Assets/LI-In-Bug.png" width="32"></a>
         <a href="https://apps.apple.com/us/app/bulls-eye-game/id1493302230" target="_blank"><span id="iOS_App"></span></a>
         </div>
         <script>
+            // Check if iOS Device and add app is it is
             let iOSDevice = !!navigator.platform.match(/iPhone|iPod|iPad/);
-            console.log(iOSDevice);
             if (iOSDevice) {
-                var img = document.createElement("img");
-                img.src = "Assets/Bullseye_image.png";
+                let img = document.createElement("img");
+                img.src = "Assets/Bullseye_Image.png";
                 img.width = "32"
-                var src = document.getElementById("iOS_App");
+                let src = document.getElementById("iOS_App");
                 src.appendChild(img);
-            } else {
-
             }
+            // Check view mode and add github logo accordingly
+            // Ran initially
+            if (darkMode.matches) {
+                let img = document.createElement("img");
+                img.src = "Assets/GitHub-Mark-Light-32px.png";
+                img.width = "32";
+                let src = document.getElementById("gitHub");
+                src.appendChild(img);
+                
+                // console.log("currently in dark mode");
+            } else {
+                let img = document.createElement("img");
+                img.src = "Assets/GitHub-Mark-32px.png";
+                img.width = "32";
+                let src = document.getElementById("gitHub");
+                console.log(src);
+                src.appendChild(img);
+                
+                // console.log("not in dark mode");
+            }
+            // Ran everytime it changes
+            darkMode.addEventListener('change', event => {
+                if (event.matches) {
+                     //dark mode
+                     let img = document.createElement("img");
+                    img.src = "Assets/GitHub-Mark-Light-32px.png";
+                    img.width = "32";
+                    let src = document.getElementById("gitHub");
+                    src.appendChild(img);
+                    console.log("currently in dark mode");
+                } else {
+                    //light mode
+                    let img = document.createElement("img");
+                    img.src = "Assets/GitHub-Mark-32px.png";
+                    img.width = "32";
+                    let src = document.getElementById("gitHub");
+                    src.appendChild(img);
+                    // console.log("not in dark mode");
+                }
+            })
+
         </script>
     </body>
 </html>
