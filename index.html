@@ -3,6 +3,9 @@
     <head>
         <title>Sam Watson</title>
         <link rel="stylesheet" href="styles.css">
+        <link rel="shortcut icon" type="image/x-icon" id="link">
+        <link href="https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@500&display=swap" rel="stylesheet">
     </head>
     <body>
         <script src="https://cdn.jsdelivr.net/npm/bubbly-bg@1.0.0/dist/bubbly-bg.js"></script>
@@ -10,17 +13,24 @@
             let hex = [];
             let hsl = ``
             let darkMode = window.matchMedia('(prefers-color-scheme: dark)');
-            
+            // Favicons
+            let link = document.getElementById('link');
+            let darkFavicon = 'Assets/DarkFavicon.ico';
+            let lightFavicon = 'Assets/LightFavicon.ico';
+
             // Check view mode and change background accordingly
             // Ran initially
             if (darkMode.matches) {
                 hex = ["#442222", "#111111"];
                 hsl = `hsla(0, 100%, 50%, ${Math.random() * 0.25})`;
-                getIcon('Assets/DarkFavicon.ico');
+                
+                link.setAttribute("href", darkFavicon);
             } else {
                 hex = ["#9AD1D4", "#003249"];
                 hsl = `hsla(195, 100%, 33%, ${Math.random() * 0.25})`;
-                getIcon('Assets/LightFavicon.ico');
+                // getIcon(lightFavicon);
+
+                link.setAttribute("href", lightFavicon);
             }
             // Ran everytime it changes
             darkMode.addEventListener('change', event => {
@@ -28,7 +38,9 @@
                      //dark mode
                     hex = ["#442222", "#111111"];
                     hsl = `hsla(0, 100%, 50%, ${Math.random() * 0.25})`;
-                    getIcon('Assets/DarkFavicon.ico');
+                    
+                    link.setAttribute("href", darkFavicon);
+
                     bubbly({
                         colorStart: hex[0],
                         colorStop: hex[1],
@@ -39,7 +51,9 @@
                     //light mode
                     hex = ["#9AD1D4", "#003249"];
                     hsl = `hsla(195, 100%, 33%, ${Math.random() * 0.25})`;
-                    getIcon('Assets/LightFavicon.ico');
+                    
+                    link.setAttribute("href", lightFavicon);
+
                     bubbly({
                         colorStart: hex[0],
                         colorStop: hex[1],
@@ -48,14 +62,6 @@
                     });
                 }
             })
-
-            function getIcon(href) {
-                var link = document.createElement('link');
-                link.type = 'image/x-icon';
-                link.rel = 'shortcut icon';
-                link.href = href;
-                document.getElementsByTagName('head')[0].appendChild(link);
-            }
 
             bubbly({
                 colorStart: hex[0],
@@ -131,7 +137,7 @@
         </script>
         <div class="socials">
             <a href="https://github.com/Sam0the0man" target="_blank"><span id="gitHub"></span></a>
-            <a href="https://linkedin.com" target="_blank"><img src="Assets/LI-In-Bug.png" width="32"></a>
+            <a href="https://linkedin.com" target="_blank"><span id="linkedIn"><img src="Assets/LI-In-Bug.png" width="32"></span></a>
             <a href="https://apps.apple.com/us/app/bulls-eye-game/id1493302230" target="_blank"><span id="iOS_App"></span></a>
         </div>
         <script>
