@@ -16,9 +16,11 @@
             if (darkMode.matches) {
                 hex = ["#442222", "#111111"];
                 hsl = `hsla(0, 100%, 50%, ${Math.random() * 0.25})`;
+                getIcon('Assets/DarkFavicon.ico');
             } else {
                 hex = ["#9AD1D4", "#003249"];
                 hsl = `hsla(195, 100%, 33%, ${Math.random() * 0.25})`;
+                getIcon('Assets/LightFavicon.ico');
             }
             // Ran everytime it changes
             darkMode.addEventListener('change', event => {
@@ -26,7 +28,7 @@
                      //dark mode
                     hex = ["#442222", "#111111"];
                     hsl = `hsla(0, 100%, 50%, ${Math.random() * 0.25})`;
-                    console.log("currently in dark mode");
+                    getIcon('Assets/DarkFavicon.ico');
                     bubbly({
                         colorStart: hex[0],
                         colorStop: hex[1],
@@ -37,7 +39,7 @@
                     //light mode
                     hex = ["#9AD1D4", "#003249"];
                     hsl = `hsla(195, 100%, 33%, ${Math.random() * 0.25})`;
-                    console.log("not in dark mode");
+                    getIcon('Assets/LightFavicon.ico');
                     bubbly({
                         colorStart: hex[0],
                         colorStop: hex[1],
@@ -46,6 +48,15 @@
                     });
                 }
             })
+
+            function getIcon(href) {
+                var link = document.createElement('link');
+                link.type = 'image/x-icon';
+                link.rel = 'shortcut icon';
+                link.href = href;
+                document.getElementsByTagName('head')[0].appendChild(link);
+            }
+
             bubbly({
                 colorStart: hex[0],
                 colorStop: hex[1],
