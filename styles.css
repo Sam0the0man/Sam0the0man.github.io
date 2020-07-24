@@ -9,26 +9,42 @@ h1 {
     margin-block-end: 0%;
     font-size: 32px;
 }
-#sequence {
+.sequence {
     font-size: 16px;
 }
 .title {
     text-align: center;
-    margin-left: 20vw;
-    margin-right: 20vw;
     padding: 0%;
+    color: #003249;
 }
 body {
     display: block;
-    margin-top: 20%;
-    margin-bottom: 20%;
-    margin-left: 20%;
-    margin-right: 20%;
+    position: relative;
+    margin-top: 35vh;
+    margin-bottom: 35vh;
+    margin-left: 25%;
+    margin-right: 25%;
     border-style: solid;
     /* border-color: transparent; */
 }
 @media(prefers-color-scheme: dark) {
     .title {
-        color:darkred;
+        color: #149414;
     }
 }
+@keyframes animated-text {
+    from{width: 0%;}
+    to{width: 100%;}
+}
+
+h1 {
+    overflow: hidden;
+    white-space: nowrap;
+    margin: 0 auto;
+    animation: animated-text 4s steps(29,end) 1s 1 normal both,
+             animated-cursor 600ms steps(29,end) infinite;
+}
+
+/* .title {
+    animation: name duration timing-function delay iteration-count direction fill-mode;
+} */
