@@ -1,74 +1,186 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>Sam Watson</title>
-        <link rel="stylesheet" href="styles.css">
-        <link rel="shortcut icon" type="image/x-icon" id="link">
-        <link href="https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap" rel="stylesheet">
-        <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@500&display=swap" rel="stylesheet">
-    </head>
-    <body>
-        <script src="https://cdn.jsdelivr.net/npm/bubbly-bg@1.0.0/dist/bubbly-bg.js"></script>
-        <script src="main.js"></script>
-        <div class="title">
+
+<head>
+    <title>Sam Watson</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="shortcut icon" type="image/x-icon" id="link">
+    <link href="https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@500&display=swap" rel="stylesheet">
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+</head>
+
+<body>
+    <script src="https://cdn.jsdelivr.net/npm/bubbly-bg@1.0.0/dist/bubbly-bg.js"></script>
+    <script src="main.js"></script>
+    <!-- <script type="text/javascript" src="js/mdb.min.js"></script> -->
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+    
+
+    <!-- <div class="title">
         <h1>Sam Watson</h1>
-        <!-- Show titles -->
+         Show titles
         <div class="sequence" data-period="2000" data-rotate='["iOS Developer", "Web Developer", "Archer"]'></div>
-        </div>
-        <div class="socials">
-            <a href="https://github.com/Sam0the0man" target="_blank"><span id="gitHub"></span></a>
-            <a href="https://linkedin.com" target="_blank"><span id="linkedIn"><img src="Assets/LI-In-Bug.png" width="32"></span></a>
-            <a href="https://apps.apple.com/us/app/bulls-eye-game/id1493302230" target="_blank"><span id="iOS_App"></span></a>
-        </div>
-        <script>
-            // // Check if iOS Device and add app is it is
-            let iOSDevice = !!navigator.platform.match(/iPhone|iPod|iPad/);
-            let gitImg = document.createElement("img");
-            let gitSrc = document.getElementById("gitHub");
-            let oldIMG;
+    </div>
+    <div class="socials">
+        <a href="https://github.com/Sam0the0man" target="_blank"><span id="gitHub"></span></a>
+        <a href="https://linkedin.com" target="_blank"><span id="linkedIn"><img src="Assets/LI-In-Bug.png"
+                    width="32"></span></a>
+        <a href="https://apps.apple.com/us/app/bulls-eye-game/id1493302230" target="_blank"><span
+                id="iOS_App"></span></a>
+    </div> -->
+    <!-- <script>
+        // // Check if iOS Device and add app is it is
+        let iOSDevice = !!navigator.platform.match(/iPhone|iPod|iPad/);
+        let gitImg = document.createElement("img");
+        let gitSrc = document.getElementById("gitHub");
+        let oldIMG;
 
-            if (iOSDevice) {
-                let img = document.createElement("img");
-                img.src = "Assets/Bullseye_Image.png";
-                img.width = "32"
+        if (iOSDevice) {
+            let img = document.createElement("img");
+            img.src = "Assets/Bullseye_Image.png";
+            img.width = "32"
 
-                let css = document.createElement("style");
-                css.type = "text/css";
-                css.innerHTML = "#iOS_App { padding-left: 10px; padding-right: 10px; }";
-                document.body.appendChild(css);
-                let src = document.getElementById("iOS_App");
-                src.appendChild(img);
-            }
-            // Check view mode and add github logo accordingly
-            // Ran initially
+            let css = document.createElement("style");
+            css.type = "text/css";
+            css.innerHTML = "#iOS_App { padding-left: 10px; padding-right: 10px; }";
+            document.body.appendChild(css);
             
-            if (darkMode.matches) {
+            let src = document.getElementById("iOS_App");
+            src.appendChild(img);
+        }
+        // Check view mode and add github logo accordingly
+        // Ran initially
+        if (darkMode.matches) {
+            gitImg.src = "Assets/GitHub-Mark-Light-32px.png";
+            gitImg.width = "32";
+            gitSrc.appendChild(gitImg);
+            oldIMG = gitImg;
+        } else {
+            gitImg.src = "Assets/GitHub-Mark-32px.png";
+            gitImg.width = "32";
+            gitSrc.appendChild(gitImg);
+            oldIMG = gitImg;
+        }
+        // Ran everytime it changes
+        darkMode.addEventListener('change', event => {
+            if (event.matches) {
+                //dark mode
                 gitImg.src = "Assets/GitHub-Mark-Light-32px.png";
                 gitImg.width = "32";
-                gitSrc.appendChild(gitImg);
-                oldIMG = gitImg;
+                gitSrc.replaceChild(gitImg, oldIMG)
+                oldIMG = gitImg
             } else {
+                //light mode
                 gitImg.src = "Assets/GitHub-Mark-32px.png";
                 gitImg.width = "32";
-                gitSrc.appendChild(gitImg);
-                oldIMG = gitImg;
+                gitSrc.replaceChild(gitImg, oldIMG)
+                oldIMG = gitImg
             }
-            // Ran everytime it changes
-            darkMode.addEventListener('change', event => {
-                if (event.matches) {
-                     //dark mode
-                    gitImg.src = "Assets/GitHub-Mark-Light-32px.png";
-                    gitImg.width = "32";
-                    gitSrc.replaceChild(gitImg, oldIMG)
-                    oldIMG = gitImg
-                } else {
-                    //light mode
-                    gitImg.src = "Assets/GitHub-Mark-32px.png";
-                    gitImg.width = "32";
-                    gitSrc.replaceChild(gitImg, oldIMG)
-                    oldIMG = gitImg
-                }
-            });
-        </script>
-    </body>
+        });
+    </script> -->
+
+    <div id="wrapper" class="">
+        <div class="overlay" style="display: none;"></div>
+            <nav class="navbar navbar-inverse navbar-fixed-top" id="sidebar-wrapper" role="navigation">
+                <ul class="nav sidebar-nav">
+                    <li class="sidebar-brand">
+                        <a href="#"> Sam Watson </a>
+                    </li>
+                    <li>
+                        <a href="#"><i class="glyphicon glyphicon-camera"></i> Photo</a>
+                    </li>
+                    <li>
+                        <a href="#"><i class="glyphicon glyphicon-facetime-video"></i> Video</a>
+                    </li>
+                    <li>
+                        <a href="#"><i class="glyphicon glyphicon-headphones"></i> Music</a>
+                    </li>
+                    <li>
+                        <a href="#"><i class="glyphicon glyphicon-cloud"></i> Cloud</a>
+                    </li>
+                    <li>
+                        <a href="#"><i class="glyphicon glyphicon-th"></i> Apps</a>
+                    </li>
+                    <li>
+                        <a href="#"><i class="glyphicon glyphicon-cog"></i> Settings</a>
+                    </li>
+                </ul>
+            </nav>
+        <div id="page-content-wrapper">
+            <button type="button" class="hamburger animated fadeInLeft is-closed" data-toggle="offcanvas">
+                <span class="hamb-top"></span>
+                <span class="hamb-middle"></span>
+                <span class="hamb-bottom"></span>
+            </button>
+            <div class="container">
+                <div class="title">
+                    <h1>Sam Watson</h1>
+                    <!-- Show titles -->
+                    <div class="sequence" data-period="2000" data-rotate='["iOS Developer", "Web Developer", "Archer"]'></div>
+                </div>
+                <div class="socials">
+                    <a href="https://github.com/Sam0the0man" target="_blank"><span id="gitHub"></span></a>
+                    <a href="https://linkedin.com" target="_blank"><span id="linkedIn"><img src="Assets/LI-In-Bug.png"
+                                width="32"></span></a>
+                    <a href="https://apps.apple.com/us/app/bulls-eye-game/id1493302230" target="_blank"><span
+                            id="iOS_App"></span></a>
+                </div>
+
+                <script>
+                    // // Check if iOS Device and add app is it is
+                    let iOSDevice = !!navigator.platform.match(/iPhone|iPod|iPad/);
+                    let gitImg = document.createElement("img");
+                    let gitSrc = document.getElementById("gitHub");
+                    let oldIMG;
+
+                    if (iOSDevice) {
+                        let img = document.createElement("img");
+                        img.src = "Assets/Bullseye_Image.png";
+                        img.width = "32"
+
+                        let css = document.createElement("style");
+                        css.type = "text/css";
+                        css.innerHTML = "#iOS_App { padding-left: 10px; padding-right: 10px; }";
+                        document.body.appendChild(css);
+                        
+                        let src = document.getElementById("iOS_App");
+                        src.appendChild(img);
+                    }
+                    // Check view mode and add github logo accordingly
+                    // Ran initially
+                    if (darkMode.matches) {
+                        gitImg.src = "Assets/GitHub-Mark-Light-32px.png";
+                        gitImg.width = "32";
+                        gitSrc.appendChild(gitImg);
+                        oldIMG = gitImg;
+                    } else {
+                        gitImg.src = "Assets/GitHub-Mark-32px.png";
+                        gitImg.width = "32";
+                        gitSrc.appendChild(gitImg);
+                        oldIMG = gitImg;
+                        console.log("Ran")
+                    }
+                    // Ran everytime it changes
+                    darkMode.addEventListener('change', event => {
+                        if (event.matches) {
+                            //dark mode
+                            gitImg.src = "Assets/GitHub-Mark-Light-32px.png";
+                            gitImg.width = "32";
+                            gitSrc.replaceChild(gitImg, oldIMG)
+                            oldIMG = gitImg
+                        } else {
+                            //light mode
+                            gitImg.src = "Assets/GitHub-Mark-32px.png";
+                            gitImg.width = "32";
+                            gitSrc.replaceChild(gitImg, oldIMG)
+                            oldIMG = gitImg
+                        }
+                    });
+                </script>
+            </div>
+        </div>
+    </div>
+</body>
 </html>

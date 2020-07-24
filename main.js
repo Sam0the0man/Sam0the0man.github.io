@@ -114,3 +114,32 @@ css.type = "text/css";
 css.innerHTML = ".sequence > .wrap { border-right: 0.08em solid #666 } .sequence::first-letter { color: transparent; } .sequence::after { content: attr(data-end); color: transparent; }";
 document.body.appendChild(css);
 };
+
+$(document).ready(function() {
+    let trigger = $('.hamburger'),
+        overlay = $('.overlay'),
+       isClosed = false;
+
+    function buttonSwitch() {
+
+        if (isClosed === true) {
+            overlay.hide();
+            trigger.removeClass('is-open');
+            trigger.addClass('is-closed');
+            isClosed = false;
+        } else {
+            overlay.show();
+            trigger.removeClass('is-closed');
+            trigger.addClass('is-open');
+            isClosed = true;
+        }
+    }
+
+    trigger.click(function () {
+        buttonSwitch();
+    });
+
+    $('[data-toggle="offcanvas"]').click(function () {
+        $('#wrapper').toggleClass('toggled');
+    });
+});
