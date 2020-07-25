@@ -26,16 +26,16 @@ h1 {
     padding: 0%;
     color: #003249;
 }
-/* body {
-    display: block;
-    position: relative;
-    margin-top: 35vh;
-    margin-bottom: 35vh;
-    margin-left: 25%;
-    margin-right: 25%;
-    border-style: solid;
+body {
+    overflow: hidden;
     /* border-color: transparent; */
-/* } */
+}
+
+html, body {
+    margin: 0;
+    height: 100%;
+    overflow: hidden;
+}
 
 @media(prefers-color-scheme: dark) {
     .title {
