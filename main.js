@@ -114,32 +114,82 @@ css.type = "text/css";
 css.innerHTML = ".sequence > .wrap { border-right: 0.08em solid #666 } .sequence::first-letter { color: transparent; } .sequence::after { content: attr(data-end); color: transparent; }";
 document.body.appendChild(css);
 };
+// Sidebar
+// $(document).ready(function() {
+//     let trigger = $('.hamburger'),
+//         overlay = $('.overlay'),
+//        isClosed = false;
 
-$(document).ready(function() {
-    let trigger = $('.hamburger'),
-        overlay = $('.overlay'),
-       isClosed = false;
+//     function buttonSwitch() {
 
-    function buttonSwitch() {
+//         if (isClosed === true) {
+//             overlay.hide();
+//             trigger.removeClass('is-open');
+//             trigger.addClass('is-closed');
+//             isClosed = false;
+//         } else {
+//             overlay.show();
+//             trigger.removeClass('is-closed');
+//             trigger.addClass('is-open');
+//             isClosed = true;
+//         }
+//     }
 
-        if (isClosed === true) {
-            overlay.hide();
-            trigger.removeClass('is-open');
-            trigger.addClass('is-closed');
-            isClosed = false;
-        } else {
-            overlay.show();
-            trigger.removeClass('is-closed');
-            trigger.addClass('is-open');
-            isClosed = true;
-        }
+//     trigger.click(function () {
+//         buttonSwitch();
+//     });
+
+//     $('[data-toggle="offcanvas"]').click(function () {
+//         $('#wrapper').toggleClass('toggled');
+//     });
+// });
+
+// // Check if iOS Device and add app is it is
+let iOSDevice = !!navigator.platform.match(/iPhone|iPod|iPad/);
+let gitImg = document.createElement("img");
+let gitSrc = document.getElementById("gitHub");
+let oldIMG;
+
+if (iOSDevice) {
+    let img = document.createElement("img");
+    img.src = "Assets/Bullseye_Image.png";
+    img.width = "32"
+
+    let css = document.createElement("style");
+    css.type = "text/css";
+    css.innerHTML = "#iOS_App { padding-left: 10px; padding-right: 10px; }";
+    document.body.appendChild(css);
+    
+    let src = document.getElementById("iOS_App");
+    src.appendChild(img);
+}
+// Check view mode and add github logo accordingly
+// Ran initially
+if (darkMode.matches) {
+    gitImg.src = "Assets/GitHub-Mark-Light-32px.png";
+    gitImg.width = "32";
+    gitSrc.appendChild(gitImg);
+    oldIMG = gitImg;
+} else {
+    gitImg.src = "Assets/GitHub-Mark-32px.png";
+    gitImg.width = "32";
+    gitSrc.appendChild(gitImg);
+    oldIMG = gitImg;
+    console.log("Ran")
+}
+// Ran everytime it changes
+darkMode.addEventListener('change', event => {
+    if (event.matches) {
+        //dark mode
+        gitImg.src = "Assets/GitHub-Mark-Light-32px.png";
+        gitImg.width = "32";
+        gitSrc.replaceChild(gitImg, oldIMG)
+        oldIMG = gitImg
+    } else {
+        //light mode
+        gitImg.src = "Assets/GitHub-Mark-32px.png";
+        gitImg.width = "32";
+        gitSrc.replaceChild(gitImg, oldIMG)
+        oldIMG = gitImg
     }
-
-    trigger.click(function () {
-        buttonSwitch();
-    });
-
-    $('[data-toggle="offcanvas"]').click(function () {
-        $('#wrapper').toggleClass('toggled');
-    });
 });
