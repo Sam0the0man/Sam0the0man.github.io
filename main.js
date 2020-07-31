@@ -193,3 +193,35 @@ darkMode.addEventListener('change', event => {
         oldIMG = gitImg
     }
 });
+
+/* Set the width of the sidebar to 250px (show it) */
+let buttonDiv = document.querySelector(".openbtn"); 
+buttonDiv.id = "open";
+let button = buttonDiv.querySelector("button");
+console.log(button);
+
+let sidePanel = document.getElementById("mySidepanel");
+
+buttonDiv.addEventListener('click', function() {
+    if (buttonDiv.id == "open") {
+    openNav();
+    buttonDiv.id = "close";
+    button.innerHTML = "&#60;"
+} else if (buttonDiv.id == "close") {
+    closeNav();
+    buttonDiv.id = "open";
+    button.innerHTML = "&#62;"
+}
+});
+function openNav() {
+    sidePanel.style.width = "25vw";
+    button.style.marginLeft = "20vw";
+    button.style.transition = "0.3s";
+  }
+  
+  /* Set the width of the sidebar to 0 (hide it) */
+  function closeNav() {
+    sidePanel.style.width = "0vw";
+    button.style.marginLeft = "0vw";
+    button.style.transition = "0.3s";
+  }
